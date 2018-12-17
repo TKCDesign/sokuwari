@@ -4,7 +4,7 @@ const line = require("@line/bot-sdk"); // Messaging API SDK
 
 const line_config = {
     channelAccessToken: process.env.LINE_ACCCESS_TOKEN,
-    channelSercret: process.env.LINE_CHANNEL_SECRET
+    channelSecret: process.env.LINE_CHANNEL_SECRET
 };
 
 //webサーバー設定　
