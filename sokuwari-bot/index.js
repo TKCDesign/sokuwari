@@ -1,32 +1,18 @@
-const LINE_CHANNEL_ACCESS_TOKEN = 'channl Access Token';
 
-var express = require('express');
-var bodyParser = require('body-parser');
-var request = require('request');
+const server = require("express")();
+const line = require("@line/bot-sdk"); // Messaging API SDK
 
-app.post('/webhook', function(req, res, next){
-    res.status(200).end();
-    for(var event of req.body.events){
-        if(event.type == 'massage' && event.massage.text == 'hello'){
-            var headers = {
-                'Cinst-Type': 'application/json',
-                'Authorization': 'Bearer' + LINE_CHANNEL_ACCESS_TOKEN
-            }
-            var body = {
-                replyToken: event.replyToken,
-                messages: [{
-                    type: 'text',
-                    text: 'hello'
-                }]
-            }
-            var url = 'https://api.line.me/v2/bot/message/reply';
-            request({
-                url: url,
-                method: 'POST',
-                headers: headers,
-                body: body,
-                json: true
-            });
-        }
-    }
+const line_config = {
+    channelAccessToken: process.env.LINE_ACCCESS_TOKEN,
+    channelSercret: process.env.LINE_CHANNEL_SECRET
+};
+
+//webサーバー設定　
+server.listen(process.env.PORT || 3000);
+
+
+//ルーター設定
+server.post('/webhook', line.middleware(line_config), (req, res, next) => {
+    res.sendStatus(200);
+    console.log(req.body);
 });
