@@ -13,6 +13,27 @@ server.listen(process.env.PORT || 3000);
 
 //ルーター設定
 server.post('/webhook', line.middleware(line_config), (req, res, next) => {
+    //最初に成功ステータスを返す
     res.sendStatus(200);
-    console.log(req.body);
+    //イベント処理のプロミスを格納
+    let events_processed = [];
+    //イベントオブジェクトの処理を書く
+    req.body.events.forEach((event) => {
+        //
+        if(event.type == "message" && event.message.type == "text"){
+            if(event.message.text == "こんにちは"){
+                events_processed.push(bot.replyMessage(event.replyToken, {
+                    type: "text",
+                    text: "うんこうんこ"
+                }));
+            }
+        }
+    });
+
+    //イベント処理が終わったら
+    Promise.all(events_processed).then(
+        (Response) => {
+            console.log('${response.length} event(s) processed.');
+        }
+    );
 });
