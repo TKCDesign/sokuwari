@@ -7,6 +7,8 @@ const line_config = {
     channelSecret: process.env.LINE_CHANNEL_SECRET
 };
 
+const bot = new line.Client(line_config);
+
 //webサーバー設定　
 server.listen(process.env.PORT || 3000);
 
