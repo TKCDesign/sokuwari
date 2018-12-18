@@ -43,16 +43,18 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
             }
         }
         */
-       if (event.message.text == "割り勘"){
-            events_processed.push(bot.replyMessage(event.replyToken, [{
-                type: "text",
-                text: "それでは金額を計算します。"
-            },{
-                type: "text",
-                text: "a"
-            }]
+        if (event.message.text == "割り勘"){
+            events_processed.push(bot.replyMessage(event.replyToken,
+                [{
+                    type: "text",
+                    text: "それでは金額を計算します。"
+                },
+                {
+                    type: "text",
+                    text: "合計金額を入力して下さい。 例:1000円"
+                }]
             ));
-       }
+        }
     });
 
     //イベント処理が終わったら
