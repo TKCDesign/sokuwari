@@ -44,13 +44,13 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
         }
         */
        if (event.message.text == "割り勘"){
-            events_processed.push(bot.replyMessage(event.replyToken, {
+            events_processed.push(bot.replyMessage(event.replyToken, [{
                 type: "text",
                 text: "それでは金額を計算します。"
             },{
                 type: "text",
                 text: "a"
-            }
+            }]
             ));
        }
     });
