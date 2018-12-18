@@ -21,40 +21,19 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
     let events_processed = [];
     //イベントオブジェクトの処理を書く
     req.body.events.forEach((event) => {
-        /*
         if (event.type == "message" && event.message.type == "text"){
-            if (event.message.text == "おはよう"){
+            let message_text;
+            if (event.message.text == "割り勘"){
+                message_text = "それでは金額を計算します。";
+            } else {
+                message_text = "aaaaa";
+            }
+
                 events_processed.push(bot.replyMessage(event.replyToken, {
                     type: "text",
-                    text: "おはよう"
+                    text: message_text
                 }));
             }
-            if (event.message.text == "こんにちは"){
-                events_processed.push(bot.replyMessage(event.replyToken, {
-                    type: "text",
-                    text: "こんにちは"
-                }));
-            }
-            if (event.message.text == "こんばんは"){
-                events_processed.push(bot.replyMessage(event.replyToken, {
-                    type: "text",
-                    text: "こんばんは"
-                }));
-            }
-        }
-        */
-        if (event.message.text == "割り勘"){
-            events_processed.push(bot.replyMessage(event.replyToken,[
-                {
-                    type: "text",
-                    text: "それでは金額を計算します。"
-                },
-                {
-                    type: "text",
-                    text: "割り勘する合計金額を入力して下さい。　　　例:1000円"
-                }
-            ]));
-        }
     });
 
     //イベント処理が終わったら
