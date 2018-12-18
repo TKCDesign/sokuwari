@@ -50,7 +50,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
             }));
             events_processed.push(bot.replyMessage(event.replyToken, {
                 type: "text",
-                text: "それでは金額を計算します。"
+                text: "あ"
             }));
        }
     });
