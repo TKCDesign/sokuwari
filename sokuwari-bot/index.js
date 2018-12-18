@@ -51,7 +51,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                 },
                 {
                     type: "text",
-                    text: "合計金額を入力して下さい。 例:1000円"
+                    text: "割り勘する合計金額を入力して下さい。\n例:1000円"
                 }]
             ));
         }
