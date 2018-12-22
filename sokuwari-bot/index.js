@@ -36,6 +36,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
      * @param {string} input　入力された文字列 
      */
     function isPrice(input) {
+        input = "" + input;
         var price = input.slice( 0, -1 );
         return price;
         /*
