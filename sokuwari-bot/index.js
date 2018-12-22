@@ -31,6 +31,22 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
         return true;
     };
     */
+
+    /**
+     * ユーザーが入力した値が金額か判定
+     * @param {string} input　入力された文字列 
+     */
+    function isPrice(input) {
+        //input = "" + input;
+        var price = input.slice( 0, -1 );
+        return price;
+        /*
+        if(price == "円") {
+            return true;
+        }
+        return false;
+        */
+    }
     
 
     /**
@@ -48,21 +64,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
     */
     //イベントオブジェクトの処理を書く
     req.body.events.forEach((event) => {
-        /**
-     * ユーザーが入力した値が金額か判定
-     * @param {string} input　入力された文字列 
-     */
-    function isPrice() {
-        //input = "" + input;
-        //var price = input.slice( 0, -1 );
-        return 11111;
-        /*
-        if(price == "円") {
-            return true;
-        }
-        return false;
-        */
-    }
+        
         if (event.type == "message" && event.message.type == "text"){
             let message_text = [];
              var price = 0;
@@ -73,7 +75,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     text: "割り勘する金額を教えて下さい！ 例:1000円"
                 };
             } else if (Number.isInteger(parseInt(event.message.text))) {
-                var obs= isPrice();
+                var obs= isPrice(event.message.text);
                 message_text =  
                 {
                     type: "text",
