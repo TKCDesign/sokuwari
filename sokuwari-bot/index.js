@@ -74,7 +74,11 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                 };
             } else if (Number.isInteger(parseInt(event.message.text))) {
                 var obs= isPrice();
-                message_text = obs;
+                message_text =  
+                {
+                    type: "text",
+                    text: "" + obs
+                }
                 /*
                 message_text = 
                 {
