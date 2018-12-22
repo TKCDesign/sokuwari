@@ -37,7 +37,8 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
      */
     function isPrice(input) {
         input = "" + input;
-        var price = input.slice( 0, -1 );
+        //var price = input.slice( 0, -1 );
+        price = 1;
         return price;
         /*
         if(price == "円") {
