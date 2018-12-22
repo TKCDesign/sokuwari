@@ -38,14 +38,11 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
      */
     function isPrice(input) {
         //input = "" + input;
-        var price = input.slice( 0, -1 );
-        return price;
-        /*
+        var price = input.slice( -1 );
         if(price == "円") {
             return true;
         }
         return false;
-        */
     }
     
 
@@ -75,19 +72,6 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     text: "割り勘する金額を教えて下さい！ 例:1000円"
                 };
             } else if (Number.isInteger(parseInt(event.message.text))) {
-                var obs= isPrice(event.message.text);
-                message_text =  
-                {
-                    type: "text",
-                    text: "" + obs
-                }
-                /*
-                message_text = 
-                {
-                    type: "text",
-                    text: "数字"
-                }
-                *//*
                 if(isPrice(event.message.text)){
                     message_text = 
                     {
@@ -98,7 +82,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                         type: "text",
                         text: "次に人数を教えて下さい！"
                     };
-                } *//*else if(isNumberPeople(event.message.text)) {
+                } /*else if(isNumberPeople(event.message.text)) {
                     message_text = 
                     {
                         type: "text",
