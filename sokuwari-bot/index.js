@@ -90,7 +90,13 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                         text: "入力に誤りがあります。数字に単位がついていない、数字が全角になってしまっているか等の原因が考えられます。"
                     }
                 };
-            };
+            }else {
+                message_text = 
+                {
+                    type: "text",
+                    text: "うんこ"
+                }
+            }
             /*elseif(isPrice(event.message.text) && ) {
                 message_text = 
                 {
