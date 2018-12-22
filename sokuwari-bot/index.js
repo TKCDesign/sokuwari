@@ -66,7 +66,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     text: "それでは割り勘金額を計算します！"
                 },
                 {
-                    tpye: "text",
+                    type: "text",
                     text: "割り勘する金額を教えて下さい！ 例:1000円"
                 };
             } else if (Number.isInteger(parseInt(event.message.text))) {
