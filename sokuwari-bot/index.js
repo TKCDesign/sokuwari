@@ -61,10 +61,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
              var price = 0;
             if (event.message.text == "割り勘"){
                 message_text = 
-                {
-                    type: "text",
-                    text: "それでは割り勘金額を計算します！"
-                },
+               
                 {
                     type: "text",
                     text: "割り勘する金額を教えて下さい！ 例:1000円"
