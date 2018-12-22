@@ -101,7 +101,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                 message_text = 
                 {
                     type: "text",
-                    text: "うんこ"
+                    text: "sonota"
                 }
             }
             /*elseif(isPrice(event.message.text) && ) {
