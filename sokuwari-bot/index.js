@@ -19,7 +19,6 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
     res.sendStatus(200);
     //イベント処理のプロミスを格納
     let events_processed = [];
-    price = 0;
     let numberPeople;
     let result = 0;
     /**
