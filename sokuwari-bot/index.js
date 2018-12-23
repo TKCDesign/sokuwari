@@ -65,6 +65,8 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
         if (event.type == "message" && event.message.type == "text"){
             let message_text = [];
              var price = 0;
+             var numberPeople = 0;
+             var result = 0;
             if (event.message.text == "割り勘"){
                 message_text = 
                 {
@@ -73,7 +75,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                 };
             } else if (Number.isInteger(parseInt(event.message.text))) {
                 if(isPrice(event.message.text)){
-                    message_text = 
+                    message_text = [
                     {
                         type: "text",
                         text: "ありがとうございます。金額は" + event.message.text +"ですね！"
@@ -81,7 +83,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     {
                         type: "text",
                         text: "次に人数を教えて下さい！"
-                    };
+                    }];
                 } /*else if(isNumberPeople(event.message.text)) {
                     message_text = 
                     {
