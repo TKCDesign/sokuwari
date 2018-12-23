@@ -19,8 +19,6 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
     res.sendStatus(200);
     //イベント処理のプロミスを格納
     let events_processed = [];
-    let numberPeople;
-    let result = 0;
     /**
      * ユーザーが入力した値が金額か判定
      * @param {string} input　入力された文字列 
@@ -72,13 +70,12 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     }];
             } else if(Number.isInteger(parseInt(event.message.text))) {
                 if(isNumberPeople(event.message.text)) {
-                    numberPeople = parseInt(event.message.text);
-                    result =  numberPeople / price;
+                    let numberPeople = parseInt(event.message.text);
+                    let result =  numberPeople / price;
                     message_text = 
                     {
                         type: "text",
-                        text: price + "|" + numberPeople
-                        //"ありがとうございます。" + event.message.text + "だと一人当たりの金額は" + result +"円です！"
+                        text: "ありがとうございます。" + event.message.text + "だと一人当たりの金額は" + result +"円です！"
                     };
                 }
             } else {
