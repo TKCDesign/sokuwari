@@ -71,7 +71,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
             } else if(Number.isInteger(parseInt(event.message.text))) {
                 if(isNumberPeople(event.message.text)) {
                     let numberPeople = parseInt(event.message.text);
-                    let result =  numberPeople / price;
+                    let result = price / numberPeople;
                     message_text = 
                     {
                         type: "text",
