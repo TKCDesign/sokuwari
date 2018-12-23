@@ -91,7 +91,8 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     message_text = 
                     {
                         type: "text",
-                        text: "ありがとうございます。" + event.message.text + "だと一人当たりの金額は" + result +"円です！"
+                        text: price + "|" + numberPeople
+                        //"ありがとうございます。" + event.message.text + "だと一人当たりの金額は" + result +"円です！"
                     };
                 }
             } else {
