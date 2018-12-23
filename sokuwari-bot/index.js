@@ -37,7 +37,6 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
      * @param {string} input　入力された文字列 
      */
     function isPrice(input) {
-        //input = "" + input;
         var price = input.slice( -1 );
         if(price == "円") {
             return true;
@@ -85,7 +84,8 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                         type: "text",
                         text: "次に人数を教えて下さい！"
                     }];
-                } else if(isNumberPeople(parseInt(event.message.text))) {
+            } else if(Number.isInteger(parseInt(event.message.text))) {
+                if(isNumberPeople(event.message.text)) {
                     numberPeople = parseInt(event.message.text);
                     result = price / numberPeople;
                     message_text = 
@@ -93,13 +93,14 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                         type: "text",
                         text: "ありがとうございます。" + event.message.text + "だと一人当たりの金額は" + result +"円です！"
                     };
-                } else {
-                    message_text = 
-                    {
-                        type: "text",
-                        text: "入力に誤りがあります。数字に単位がついていない、数字が全角になってしまっているか等の原因が考えられます。"
-                    }
                 }
+            } else {
+                message_text = 
+                {
+                    type: "text",
+                    text: "入力に誤りがあります。数字に単位がついていない、数字が全角になってしまっているか等の原因が考えられます。"
+                }
+            }
             
             } else {
                 message_text = 
