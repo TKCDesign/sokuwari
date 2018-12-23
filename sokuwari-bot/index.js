@@ -78,7 +78,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     message_text = [
                     {
                         type: "text",
-                        text: "ありがとうございます。金額は" + event.message.text +"ですね！"
+                        text: "ありがとうございます。金額は" + event.message.text +"ですね！" + price
                     },
                     {
                         type: "text",
