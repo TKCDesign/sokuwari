@@ -19,25 +19,15 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
     res.sendStatus(200);
     //イベント処理のプロミスを格納
     let events_processed = [];
-    /*
-    function isPrice(inputPrice) {
-        //文字列最後の円を取り除く
-
-        //var price  = inputPrice.slice( 0, -1) ;
-        parseInt(inputPrice);
-        if(Number.isInteger(inputPrice)) {
-            return false;
-        }
-        return true;
-    };
-    */
-
+    let price = 0;
+    let numberPeople;
+    let result = 0;
     /**
      * ユーザーが入力した値が金額か判定
      * @param {string} input　入力された文字列 
      */
     function isPrice(input) {
-        var price = input.slice( -1 );
+        let price = input.slice( -1 );
         if(price == "円") {
             return true;
         }
@@ -51,7 +41,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
      */
     
     function isNumberPeople(input) {
-        var numberPeople = input.slice( -1 );
+        let numberPeople = input.slice( -1 );
         if(numberPeople == "人") {
             return true;
         }
@@ -63,9 +53,6 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
         
         if (event.type == "message" && event.message.type == "text"){
             let message_text = [];
-             var price;
-             var numberPeople;
-             var result = 0;
             if (event.message.text == "割り勘"){
                 message_text = 
                 {
