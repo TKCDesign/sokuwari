@@ -63,9 +63,9 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
         
         if (event.type == "message" && event.message.type == "text"){
             let message_text = [];
-             var price = 0;
-             var numberPeople = 0;
-             var result = 0;
+             var price;
+             var numberPeople;
+             var result;
             if (event.message.text == "割り勘"){
                 message_text = 
                 {
