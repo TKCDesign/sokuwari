@@ -50,15 +50,15 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
      * ユーザーが入力した値が人数か判定
      * @param {string} input 入力された文字列
      */
-    /*
+    
     function isNumberPeople(input) {
         var numberPeople = input.slice( -1 );
-        if(price == "人") {
+        if(numberPeople == "人") {
             return true;
         }
         return false;
     }
-    */
+    
     //イベントオブジェクトの処理を書く
     req.body.events.forEach((event) => {
         
@@ -75,6 +75,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                 };
             } else if (Number.isInteger(parseInt(event.message.text))) {
                 if(isPrice(event.message.text)){
+                    price = parseInt(event.message.text);
                     message_text = [
                     {
                         type: "text",
@@ -84,11 +85,13 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                         type: "text",
                         text: "次に人数を教えて下さい！"
                     }];
-                } /*else if(isNumberPeople(event.message.text)) {
+                } else if(isNumberPeople(parseInt(event.message.text))) {
+                    numberPeople = parseInt(event.message.text);
+                    result = price / numberPeople;
                     message_text = 
                     {
                         type: "text",
-                        text: "ありがとうございます。" + event.message.text + "だと一人当たりの金額は" + price +"です！"
+                        text: "ありがとうございます。" + event.message.text + "だと一人当たりの金額は" + result +"円です！"
                     };
                 } else {
                     message_text = 
@@ -97,7 +100,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                         text: "入力に誤りがあります。数字に単位がついていない、数字が全角になってしまっているか等の原因が考えられます。"
                     }
                 }
-                */
+            
             } else {
                 message_text = 
                 {
