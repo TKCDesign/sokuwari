@@ -149,8 +149,8 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                         "actions": [
                             {
                                 "type": "message",
-                                "label": "確認しました！",
-                                "text": "あ"
+                                "label": "いいね",
+                                "text": "フィードバックありがとうございます。よければ製作者のブログも見てみて下さいね！ https://tkc-design.com"
                             }
                         ],                
                         "text": "テキストです"
