@@ -54,7 +54,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                 message_text = 
                 {
                     type: "text",
-                    text: "割り勘する金額を教えて下さい！ 例:1000円"
+                    text: "割り勘する金額を教えて下さい！\n例:1000円"
                 };
             } else if (Number.isInteger(parseInt(event.message.text))) {
                 if(isPrice(event.message.text)){
@@ -62,7 +62,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     message_text = [
                     {
                         type: "text",
-                        text: "ありがとうございます。金額は" + event.message.text +"ですね！" 
+                        text: "ありがとうございます。\n金額は" + event.message.text +"ですね！" 
                     },
                     {
                         type: "text",
@@ -75,14 +75,14 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     message_text = 
                     {
                         type: "text",
-                        text: "ありがとうございます。" + event.message.text + "だと一人当たりの金額は" + result +"円です！"
+                        text: "ありがとうございます。\n" + event.message.text + "だと一人当たりの金額は" + result +"円です！"
                     };
                 }
             } else {
                 message_text = 
                 {
                     type: "text",
-                    text: "入力に誤りがあります。数字に単位がついていない、数字が全角になってしまっているか等の原因が考えられます。"
+                    text: "入力に誤りがあります。\n数字に単位がついていない、数字が全角になってしまっているか等の原因が考えられます。"
                 }
             }
         } else {
