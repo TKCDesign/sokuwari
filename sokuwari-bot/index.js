@@ -140,6 +140,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     };
                     */
                    message_text = {
+                    "thumbnailImageUrl": "https://sokuwari.herokuapp.com/f_f_object_96_s512_f_object_96_2bg.png",
                     "type": "template",
                     "altText": "一人あたりの金額は"+ result + "です。",
                     'title': event.message.text + 'の場合' ,
@@ -160,7 +161,6 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                 message_text = 
                 {
                     type: "text",
-                    'thumbnailImageUrl': 'https://d1f5hsy4d47upe.cloudfront.net/f_f_object_96_s512_f_object_96_2bg.png',
                     text: "入力に誤りがあります。\n数字に単位がついていない、数字が全角になってしまっているか等の原因が考えられます。"
                 }
             }
