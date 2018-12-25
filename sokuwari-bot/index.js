@@ -141,9 +141,10 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     */
                    message_text = {
                     "type": "template",
-                    "altText": "this is a confirm template",
+                    "altText": "一人あたりの金額は"+ result,
                     "template": {
-                        "type": "confirm",
+                        "type": "text",
+                        /*
                         "actions": [
                             {
                                 "type": "message",
@@ -156,6 +157,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                                 "text": "いいえ"
                             }
                         ],
+                        */
                         "text": "テキストです"
                     }
                 };
@@ -171,7 +173,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
             message_text = 
             {
                 type: "text",
-                text: "「割り勘」と入力していただければすぐに割り勘計算をしますよー！"
+                text: "「割り勘」と入力していただければすぐに割り勘金額を計算をしますよー！"
             }
         }
             /*elseif(isPrice(event.message.text) && ) {
