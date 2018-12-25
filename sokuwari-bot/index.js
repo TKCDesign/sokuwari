@@ -142,13 +142,14 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                    message_text = {
                     "type": "template",
                     "altText": "一人あたりの金額は"+ result + "です。",
+                    'title': event.message.text + 'の場合' ,
                     "template": {
                         "type": "buttons",  
                         "actions": [
                             {
                                 "type": "message",
-                                "label": "ああ",
-                                "text": "確認しました！"
+                                "label": "確認しました！",
+                                "text": ""
                             }
                         ],                
                         "text": "テキストです"
