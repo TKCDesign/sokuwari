@@ -142,7 +142,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                                             "label": "いいね！👍",
                                             "text": "フィードバックありがとうございます。よければ製作者のブログも見てみて下さいね！ https://tkc-design.com"
                                         }],  
-                                "thumbnailImageUrl": "/https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2018/04/button.png.png",
+                                "thumbnailImageUrl": "https://sokuwari.herokuapp.com/thumb.jpg",
                                 "title": event.message.text + "だと",             
                                 "text": "一人あたりの金額は"+ result + "円です！"
                             }
