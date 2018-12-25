@@ -66,7 +66,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                         },
                         {
                             "type": "text",
-                            "text": "次に人数を教えて下さい！",
+                            "text": "次に人数を教えて下さい！下のボタンからも入力できます！",
                             "quickReply": { 
                                 "items": [
                                     {
