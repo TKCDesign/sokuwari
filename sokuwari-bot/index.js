@@ -136,7 +136,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                             "thumbnailImageUrl": "https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2018/03/LINE_Icon-400x400-200x200.png",
                             "type": "template",
                             "altText": "一人あたりの金額は"+ result + "円です！",
-                            'title': event.message.text + 'の場合' ,
+                            "title": event.message.text + "の場合",
                             "template": {
                                 "type": "buttons",  
                                 "actions": [
@@ -146,7 +146,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                                         "text": "フィードバックありがとうございます。よければ製作者のブログも見てみて下さいね！ https://tkc-design.com"
                                     }
                                 ],                
-                                "text": "テキストです"
+                                "text": "一人あたりの金額は"+ result + "円です！"
                             }
                         };
                     }
