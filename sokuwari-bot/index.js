@@ -89,7 +89,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
             message_text = 
             {
                 type: "text",
-                text: "sonota"
+                text: "「割り勘」と入力していただければすぐに割り勘計算をしますよー！"
             }
         }
             /*elseif(isPrice(event.message.text) && ) {
