@@ -72,15 +72,56 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                                     {
                                         "action": {
                                             "type": "message",
-                                            "label": "Sushi",
-                                            "text": "Sushi"
+                                            "label": "2人",
+                                            "text": "2人"
                                           }
-                                    },
-                                    {
+                                    },{
                                         "action": {
                                             "type": "message",
-                                            "label": "Sushi",
-                                            "text": "Sushi"
+                                            "label": "3人",
+                                            "text": "3人"
+                                          }
+                                    },{
+                                        "action": {
+                                            "type": "message",
+                                            "label": "4人",
+                                            "text": "4人"
+                                          }
+                                    },{
+                                        "action": {
+                                            "type": "message",
+                                            "label": "5人",
+                                            "text": "5人"
+                                          }
+                                    },{
+                                        "action": {
+                                            "type": "message",
+                                            "label": "6人",
+                                            "text": "6人"
+                                          }
+                                    },{
+                                        "action": {
+                                            "type": "message",
+                                            "label": "7人",
+                                            "text": "7人"
+                                          }
+                                    },{
+                                        "action": {
+                                            "type": "message",
+                                            "label": "8人",
+                                            "text": "8人"
+                                          }
+                                    },{
+                                        "action": {
+                                            "type": "message",
+                                            "label": "9人",
+                                            "text": "9人"
+                                          }
+                                    },{
+                                        "action": {
+                                            "type": "message",
+                                            "label": "10人",
+                                            "text": "10人"
                                           }
                                     }
                                 ]
