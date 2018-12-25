@@ -129,34 +129,27 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                         }
                     ];
             } else if(Number.isInteger(parseInt(event.message.text))) {
-                if(isNumberPeople(event.message.text)) {
-                    let numberPeople = parseInt(event.message.text);
-                    let result = Math.round(price / numberPeople);
-                    /*
-                    message_text = 
-                    {
-                        type: "text",
-                        text: "ありがとうございます。\n" + event.message.text + "だと一人当たりの金額は" + result +"円です！"
-                    };
-                    */
-                   message_text = {
-                    "thumbnailImageUrl": "https://sokuwari.herokuapp.com/f_f_object_96_s512_f_object_96_2bg.png",
-                    "type": "template",
-                    "altText": "一人あたりの金額は"+ result + "円です！",
-                    'title': event.message.text + 'の場合' ,
-                    "template": {
-                        "type": "buttons",  
-                        "actions": [
-                            {
-                                "type": "message",
-                                "label": "いいね",
-                                "text": "フィードバックありがとうございます。よければ製作者のブログも見てみて下さいね！ https://tkc-design.com"
+                    if(isNumberPeople(event.message.text)) {
+                        let numberPeople = parseInt(event.message.text);
+                        let result = Math.round(price / numberPeople);
+                        message_text = {
+                            "thumbnailImageUrl": "https://sokuwari.herokuapp.com/f_f_object_96_s512_f_object_96_2bg.png",
+                            "type": "template",
+                            "altText": "一人あたりの金額は"+ result + "円です！",
+                            'title': event.message.text + 'の場合' ,
+                            "template": {
+                                "type": "buttons",  
+                                "actions": [
+                                    {
+                                        "type": "message",
+                                        "label": "いいね！\U+1F44E",
+                                        "text": "フィードバックありがとうございます。よければ製作者のブログも見てみて下さいね！ https://tkc-design.com"
+                                    }
+                                ],                
+                                "text": "テキストです"
                             }
-                        ],                
-                        "text": "テキストです"
+                        };
                     }
-                };
-                }
             } else {
                 message_text = 
                 {
