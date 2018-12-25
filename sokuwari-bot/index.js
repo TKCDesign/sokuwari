@@ -132,13 +132,14 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                 if(isNumberPeople(event.message.text)) {
                     let numberPeople = parseInt(event.message.text);
                     let result = Math.round(price / numberPeople);
-                    /*
+                    
                     message_text = 
                     {
                         type: "text",
                         text: "ありがとうございます。\n" + event.message.text + "だと一人当たりの金額は" + result +"円です！"
                     };
-                    */
+                    
+                   /*
                     message_text = {
                         "type": "template",
                         "altText": "this is a confirm template",
@@ -159,6 +160,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                             "text": "テキストです"
                         }
                     };
+                    */
             } else {
                 message_text = 
                 {
