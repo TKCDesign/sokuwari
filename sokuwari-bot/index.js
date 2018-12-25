@@ -142,7 +142,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                    message_text = {
                     "thumbnailImageUrl": "https://sokuwari.herokuapp.com/f_f_object_96_s512_f_object_96_2bg.png",
                     "type": "template",
-                    "altText": "一人あたりの金額は"+ result + "です。",
+                    "altText": "一人あたりの金額は"+ result + "円です！",
                     'title': event.message.text + 'の場合' ,
                     "template": {
                         "type": "buttons",  
@@ -164,27 +164,17 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     text: "入力に誤りがあります。\n数字に単位がついていない、数字が全角になってしまっているか等の原因が考えられます。"
                 }
             }
+        } else if(event.message.text == "フィードバックありがとうございます。よければ製作者のブログも見てみて下さいね！ https://tkc-design.com"){
+            return;
         } else {
             message_text = 
             {
-                type: "text",
-                text: "「割り勘」と入力していただければすぐに割り勘金額を計算をしますよー！"
+                "type": "text",
+                "text": "「割り勘」と入力していただければすぐに割り勘金額を計算をしますよー！"
             }
         }
-            /*elseif(isPrice(event.message.text) && ) {
-                message_text = 
-                {
-                    type: "text",
-                    text: "ありがとうございます！金額は" + event.message.text + "ですね。"
-                },
-                {
-                    type: "text",
-                    text: "次に人数を入力して下さい！"
-                };
-            }
-            */
-            events_processed.push(bot.replyMessage(event.replyToken, message_text));
-            }
+        events_processed.push(bot.replyMessage(event.replyToken, message_text));
+        }
     });
 
     //イベント処理が終わったら
