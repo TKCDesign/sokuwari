@@ -133,19 +133,17 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                         let numberPeople = parseInt(event.message.text);
                         let result = Math.round(price / numberPeople);
                         message_text = {
-                            "thumbnailImageUrl": "https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2018/03/LINE_Icon-400x400-200x200.png",
                             "type": "template",
                             "altText": "一人あたりの金額は"+ result + "円です！",
-                            "title": event.message.text + "の場合",
                             "template": {
                                 "type": "buttons",  
-                                "actions": [
-                                    {
-                                        "type": "message",
-                                        "label": "いいね！👍",
-                                        "text": "フィードバックありがとうございます。よければ製作者のブログも見てみて下さいね！ https://tkc-design.com"
-                                    }
-                                ],                
+                                "actions": [{
+                                            "type": "message",
+                                            "label": "いいね！👍",
+                                            "text": "フィードバックありがとうございます。よければ製作者のブログも見てみて下さいね！ https://tkc-design.com"
+                                        }],   
+                                "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
+                                "title": "text",             
                                 "text": "一人あたりの金額は"+ result + "円です！"
                             }
                         };
