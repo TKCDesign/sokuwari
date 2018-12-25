@@ -163,7 +163,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
             message_text = 
             {
                 "type": "text",
-                "text": String.fromCharCode(U+1F44D) + "「割り勘」と入力していただければすぐに割り勘金額を計算をしますよー！"
+                "text":  "👩💼「割り勘」と入力していただければすぐに割り勘金額を計算をしますよー！"
             }
         }
         events_processed.push(bot.replyMessage(event.replyToken, message_text));
