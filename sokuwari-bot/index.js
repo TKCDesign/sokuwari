@@ -141,8 +141,9 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                                             "type": "message",
                                             "label": "いいね！👍",
                                             "text": "フィードバックありがとうございます。よければ製作者のブログも見てみて下さいね！ https://tkc-design.com"
-                                        }],   
-                                "title": "text",             
+                                        }],  
+                                "thumbnailImageUrl": "/f_f_object_96_s512_f_object_96_2bg.png",
+                                "title": event.message.text + "だと",             
                                 "text": "一人あたりの金額は"+ result + "円です！"
                             }
                         };
