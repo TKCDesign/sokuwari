@@ -141,30 +141,22 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     */
                     message_text = {
                         "type": "template",
-                        "altText": "this is a buttons template",
+                        "altText": "this is a confirm template",
                         "template": {
-                        "type": "buttons",
-                        "actions": [
-                        {
-                        "type": "message",
-                        "label": "アクション 1",
-                        "text": "アクション 1"
-                        },
-                        {
-                        "type": "message",
-                        "label": "アクション 2",
-                        "text": "アクション 2"
-                        },
-                        {
-                        "type": "message",
-                        "label": "アクション 3",
-                        "text": "アクション 3"
-                        }
-                        ],
-                        "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
-                        "title": "タイトルです",
-                        "text": "テキストです"
-                        }
+                            "type": "confirm",
+                            "actions": [
+                                {
+                                    "type": "message",
+                                    "label": "はい",
+                                    "text": "はい"
+                                },
+                                {
+                                    "type": "message",
+                                    "label": "いいえ",
+                                    "text": "いいえ"
+                                }
+                            ],
+                            "text": "テキストです"
                         }
                     }
             } else {
