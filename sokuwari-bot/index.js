@@ -149,7 +149,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                             {
                                 "type": "message",
                                 "label": "確認しました！",
-                                "text": ""
+                                "text": "あ"
                             }
                         ],                
                         "text": "テキストです"
