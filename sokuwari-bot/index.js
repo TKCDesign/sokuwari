@@ -61,12 +61,40 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                     price = parseInt(event.message.text);
                     message_text = [
                     {
-                        type: "text",
-                        text: "ありがとうございます。\n金額は" + event.message.text +"ですね！" 
+                        "type": "text",
+                        "text": "ありがとうございます。\n金額は" + event.message.text +"ですね！" 
                     },
                     {
-                        type: "text",
-                        text: "次に人数を教えて下さい！"
+                        "type": "text",
+                        "text": "次に人数を教えて下さい！",
+                        "quickReply": { 
+                            "items": [
+                                {
+                                    "type": "action", 
+                                    "imageUrl": "https://example.com/sushi.png",
+                                    "action": {
+                                    "type": "message",
+                                    "label": "Sushi",
+                                    "text": "Sushi"
+                                    }
+                                },
+                                {
+                                    "type": "action",
+                                    "imageUrl": "https://example.com/tempura.png",
+                                    "action": {
+                                    "type": "message",
+                                    "label": "Tempura",
+                                    "text": "Tempura"
+                                    }
+                                },
+                                {
+                                    "type": "action", // ④
+                                    "action": {
+                                        "type": "location",
+                                        "label": "Send location"
+                                    }
+                                }
+                            ]}
                     }];
             } else if(Number.isInteger(parseInt(event.message.text))) {
                 if(isNumberPeople(event.message.text)) {
