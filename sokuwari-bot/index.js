@@ -142,7 +142,6 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                                             "label": "いいね！👍",
                                             "text": "フィードバックありがとうございます。よければ製作者のブログも見てみて下さいね！ https://tkc-design.com"
                                         }],   
-                                "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
                                 "title": "text",             
                                 "text": "一人あたりの金額は"+ result + "円です！"
                             }
