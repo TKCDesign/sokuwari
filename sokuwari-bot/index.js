@@ -143,7 +143,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                                             "text": "フィードバックありがとうございます。よければ製作者のブログも見てみて下さいね！ https://tkc-design.com"
                                         }],  
                                 "thumbnailImageUrl": "https://sokuwari.herokuapp.com/thumb.jpg",
-                                "title": event.message.text + "だと",             
+                                "title": "合計金額" + price + "で" + event.message.text + "だと",             
                                 "text": "一人あたりの金額は"+ result + "円です！"
                             }
                         };
