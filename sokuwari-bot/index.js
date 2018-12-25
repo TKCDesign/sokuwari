@@ -70,20 +70,18 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                             "quickReply": { 
                                 "items": [
                                     {
-                                        "type": "action", 
                                         "action": {
                                             "type": "message",
                                             "label": "Sushi",
-                                            "text": "1人"
-                                        }
+                                            "text": "Sushi"
+                                          }
                                     },
                                     {
-                                        "type": "action",
                                         "action": {
                                             "type": "message",
-                                            "label": "Tempura",
-                                            "text": "Tempura"
-                                        }
+                                            "label": "Sushi",
+                                            "text": "Sushi"
+                                          }
                                     }
                                 ]
                             }
