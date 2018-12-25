@@ -144,7 +144,7 @@ server.post('/webhook', line.middleware(line_config), (req, res, next) => {
                                         }],  
                                 "thumbnailImageUrl": "https://raw.githubusercontent.com/TKCDesign/sokuwari/master/sokuwari-bot/thumb.jpg",
                                 "title": "一人あたりの金額は"+ result + "円です！",             
-                                "text": "合計金額" + price + "で" + event.message.text + "の場合"
+                                "text": "合計金額" + price + "円で" + event.message.text + "の場合"
                             }
                         };
                     }
